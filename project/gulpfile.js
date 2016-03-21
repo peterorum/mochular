@@ -14,5 +14,5 @@ wrench.readdirSyncRecursive('./Gulp').filter(function(file) {
 
 // default task is to compile sass
 gulp.task('default', [], function () {
-  gulp.start('styles');
+  gulp.start('build');
 });
