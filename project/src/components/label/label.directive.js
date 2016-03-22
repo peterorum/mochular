@@ -8,9 +8,11 @@
       template: `
         <div class="ma-label">
           {{text}}
+          <ng-transclude></ng-transclude>
         </div>
         `,
       restrict: "E",
+      transclude: true,
       scope: {
         text: "@"
       },
