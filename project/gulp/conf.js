@@ -7,11 +7,14 @@ var gutil = require('gulp-util');
 exports.paths = {
     css: {
         src: 'src',
-        dest: 'dist/css'
+        dest: 'dist/css',
+        fonts: 'dist/fonts',
+        libs: 'bower_components'
     },
     js: {
         src: 'src',
-        dest: 'dist/js'
+        dest: 'dist/js',
+        libs: 'bower_components'
     }
 };
 

@@ -11,8 +11,21 @@ var src = [
     path.join(conf.paths.js.src, '/**/*.js')
 ];
 
+var src = [
+    path.join(conf.paths.js.src, '/**/*.js'),
+    '!' + path.join(conf.paths.js.src, '/**/*.spec.js'),
+    '!' + path.join(conf.paths.js.src, '/style-guide/**/*.js')
+];
+
 var templates = [
     path.join(conf.paths.js.src, '/**/*.template.html')
+];
+
+// must already be minified
+// after change, run gulp build
+
+var libs = [
+    path.join(conf.paths.js.libs, 'angular/angular.min.js')
 ];
 
 // eslint
@@ -72,6 +85,16 @@ gulp.task('scripts:js', function() {
 
     return gulp.src(src.concat('!' + path.join(conf.paths.js.src, '/**/*.spec.js')))
         .pipe($.concat('scripts.js'))
+        .pipe(gulp.dest(conf.paths.js.dest));
+});
+
+// join all specific library js (must already be minimized)
+// doesn't change often, so not in watch. just gulp build
+
+gulp.task('libs:js', function() {
+
+    return gulp.src(libs)
+        .pipe($.concat('libs.min.js'))
         .pipe(gulp.dest(conf.paths.js.dest));
 });
 
