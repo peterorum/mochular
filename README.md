@@ -1,4 +1,4 @@
-# mochular
+  # mochular
 Boilerplate with angular, mocha, chai, es6/babel, gulp, sass, eslint, jscs, sass-lint, bower, bootstrap, browser-sync.
 
 Basic structure for a front-end project using gulp, angular, es6 & mocha/chai for tests.
