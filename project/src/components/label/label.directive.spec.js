@@ -1,44 +1,44 @@
 (function() {
-  "use strict";
+    "use strict";
 
-  describe( "simple test", function() {
+    describe( "simple test", function() {
 
-    beforeEach(function() {});
+        beforeEach(function() {});
 
-    it( "will pass", function() {
-      let x = 2;
+        it( "will pass", function() {
+            let x = 2;
 
-      expect( x ).to.equal( 2 );
-    });
-  });
-
-  describe( "directive label", function() {
-    let $compile, $scope;
-
-    beforeEach(function() {
-      angular.mock.module( "mochular" );
+            expect( x ).to.equal( 2 );
+        });
     });
 
-    beforeEach( inject(function( _$compile_, $rootScope ) {
-      $compile = _$compile_;
-      $scope = $rootScope.$new();
-    }) );
+    describe( "directive label", function() {
+        let $compile, $scope;
 
-    function getMarkup() {
-      return '<ma-label text="hello test"></ma-label>';
-    }
+        beforeEach(function() {
+            angular.mock.module( "mochular.main" );
+        });
 
-    it( "has a label", function() {
+        beforeEach( inject(function( _$compile_, $rootScope ) {
+            $compile = _$compile_;
+            $scope = $rootScope.$new();
+        }) );
 
-      let element = angular.element( getMarkup() );
-      element = $compile( element )( $scope );
-      $scope.$digest();
+        function getMarkup() {
+            return '<ma-label text="hello test"></ma-label>';
+        }
 
-      // console.log(element[0].outerHTML);
+        it( "has a label", function() {
 
-      expect( element.hasClass( "ma-label" ) ).to.be.ok;
+            let element = angular.element( getMarkup() );
+            element = $compile( element )( $scope );
+            $scope.$digest();
+
+            // console.log(element[0].outerHTML);
+
+            expect( element.hasClass( "ma-label" ) ).to.be.ok;
+        });
     });
-  });
 
 })();
 

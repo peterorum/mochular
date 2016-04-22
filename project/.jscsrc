@@ -1,7 +1,7 @@
 {
     "preset": "idiomatic",
     "verbose": true,
-    "validateIndentation": 2,
+    "validateIndentation": 4,
     "disallowDanglingUnderscores": false,
     "requireCamelCaseOrUpperCaseIdentifiers": false,
     "requireCurlyBraces": [

@@ -1,2 +1,2 @@
 angular
-    .module( "mochular", []);
+    .module( "mochular.main", []);
