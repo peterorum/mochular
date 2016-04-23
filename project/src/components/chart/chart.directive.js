@@ -11,7 +11,8 @@
             scope: {
             },
             replace: true,
-            link: link
+            link: link,
+            controller: [ '$scope', '$timeout', controller ]
         };
 
         function link(scope, element) {
@@ -181,6 +182,38 @@
             // apply chart
 
             element.highcharts( chart );
+
+            // store chart object
+
+            scope.chart = element.highcharts();
+        }
+
+        function controller($scope, $timeout) {
+
+            let newTitle = "what the f";
+            let speed = 200;
+
+            for (let i = 0; i < newTitle.length; i++) {
+                $timeout( ( ) => {
+
+                    $scope.chart.setTitle( {
+                        text: newTitle.substr( 0, i + 1 )
+                    } );
+
+                }, speed * (i + 1 ) );
+
+            }
+
+            for (let i = 0; i < newTitle.length; i++) {
+                $timeout( ( ) => {
+
+                    $scope.chart.setTitle( {
+                        text: newTitle.substr( 0, newTitle.length - i - 1 )
+                    } );
+
+                }, newTitle.length * speed +  speed * (i + 1 ) );
+
+            }
         }
 
         return directive;
