@@ -74,6 +74,7 @@
     "validateParameterSeparator": ", ",
     "requireSpaceAfterComma": true,
     "validateQuoteMarks": false,
-    "validateCommentPosition": false
+    "validateCommentPosition": false,
+    "requireSpacesInsideParentheses": false
 }
 

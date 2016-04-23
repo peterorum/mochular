@@ -14,7 +14,7 @@
             link: link
         };
 
-        function link( scope, element /* , attrs,  controller, transcludeFn */ ) {
+        function link(scope, element) {
 
             // set theme
 
@@ -124,11 +124,11 @@
 
             // apply theme
 
-            Highcharts.setOptions( theme );
+            // Highcharts.setOptions( theme );
 
             // set chart options
 
-            let chart = {
+            let options = {
                 chart: {
                     type: 'area'
                 },
@@ -175,6 +175,8 @@
                     data: [ 502, 635, 809, 947, 1402, 3634, 5268 ]
                 } ]
             };
+
+            let chart = _.merge( options, theme );
 
             // apply chart
 

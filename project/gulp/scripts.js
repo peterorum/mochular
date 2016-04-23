@@ -8,10 +8,6 @@ var ngHtml2Js = require("gulp-ng-html2js");
 var $ = require('gulp-load-plugins')();
 
 var src = [
-    path.join(conf.paths.js.src, '/**/*.js')
-];
-
-var src = [
     path.join(conf.paths.js.src, '/**/*.js'),
     '!' + path.join(conf.paths.js.src, '/**/*.spec.js'),
     '!' + path.join(conf.paths.js.src, '/style-guide/**/*.js')
@@ -25,7 +21,9 @@ var templates = [
 // after change, run gulp build
 
 var libs = [
-    path.join(conf.paths.js.libs, 'angular/angular.min.js')
+    path.join(conf.paths.js.libs, 'angular/angular.min.js'),
+    path.join(conf.paths.js.libs, 'lodash/dist/lodash.min.js'),
+    path.join(conf.paths.js.libs, 'lodash/dist/lodash.fp.min.js')
 ];
 
 // eslint
