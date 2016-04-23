@@ -21,8 +21,8 @@
   "google": false,
   "Modernizr": false,
   "__utils__": false,
-  "expect": false
-
+  "expect": false,
+  "Highcharts": false
   },
   "rules": {
   "no-mixed-spaces-and-tabs": 0,
