@@ -7,9 +7,8 @@
         let directive = {
             templateUrl: "components/chart/chart.template.html",
             restrict: "E",
-            transclude: true,
+            transclude: false,
             scope: {
-                text: "@"
             },
             replace: true,
             link: link
@@ -17,7 +16,9 @@
 
         function link( scope, element /* , attrs,  controller, transcludeFn */ ) {
 
-            Highcharts.theme = {
+            // set theme
+
+            let theme = {
                 colors: [ '#ebebeb', '#50B432', '#ED561B', '#DDDF00', '#24CBE5',
                     '#64E572', '#FF9655', '#FFF263', '#6AF9C4' ],
                 chart: {
@@ -121,9 +122,13 @@
                 }
             };
 
-            Highcharts.setOptions( Highcharts.theme );
+            // apply theme
 
-            element.highcharts( {
+            Highcharts.setOptions( theme );
+
+            // set chart options
+
+            let chart = {
                 chart: {
                     type: 'area'
                 },
@@ -169,8 +174,11 @@
                     name: '',
                     data: [ 502, 635, 809, 947, 1402, 3634, 5268 ]
                 } ]
-            } );
+            };
 
+            // apply chart
+
+            element.highcharts( chart );
         }
 
         return directive;
