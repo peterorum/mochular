@@ -125,7 +125,14 @@
                             stroke: '#CCCCCC'
                         }
                     }
+                },
+                tooltip: {
+                    backgroundColor: '#f84610',
+                    borderColor: 'black',
+                    borderRadius: 10,
+                    borderWidth: 3
                 }
+
             };
 
             // apply theme
@@ -163,7 +170,8 @@
                 },
                 tooltip: {
                     shared: true,
-                    valueSuffix: ''
+                    valueSuffix: '',
+                    formatter: () => 'Risk'
                 },
                 plotOptions: {
                     area: {
@@ -218,7 +226,7 @@
                         text: newTitle.substr( 0, newTitle.length - i - 1 )
                     } );
 
-                }, newTitle.length * speed +  speed * (i + 1 ) );
+                }, newTitle.length * speed + speed * (i + 1 ) );
 
             }
         }
