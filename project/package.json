@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --auto-watch --no-single-run",
-    "serve": "browser-sync start --server --files 'dist/css/**/*.min.css, dist/js/**/*.min.js, index.html, html-tests/*.html'"
+    "serve": "browser-sync start --config bs-config.js"
   },
   "author": "",
   "license": "ISC",
