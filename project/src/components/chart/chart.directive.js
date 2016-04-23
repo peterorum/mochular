@@ -55,7 +55,9 @@
                     }
                 },
                 xAxis: {
-                    gridLineWidth: 0,
+                    gridLineWidth: 2,
+                    gridLineColor: '#fff',
+                    // gridZIndex: 4,
                     lineColor: '#000',
                     tickColor: '#000',
                     lineWidth: 0,
@@ -77,6 +79,7 @@
                     }
                 },
                 yAxis: {
+                    gridLineWidth: 0,
                     minorTickInterval: '0',
                     lineColor: '#000',
                     lineWidth: 0,
