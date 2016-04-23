@@ -1,7 +1,7 @@
 (function() {
     angular
-        .module("mochular.main")
-        .directive("maChart", [ chartFactory ]);
+        .module( "mochular.main" )
+        .directive( "maChart", [ chartFactory ] );
 
     function chartFactory() {
         let directive = {
@@ -15,10 +15,11 @@
             link: link
         };
 
-        function link(scope, element /* , attrs,  controller, transcludeFn */ ) {
+        function link( scope, element /* , attrs,  controller, transcludeFn */ ) {
 
             Highcharts.theme = {
-                colors: [ '#ebebeb', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4' ],
+                colors: [ '#ebebeb', '#50B432', '#ED561B', '#DDDF00', '#24CBE5',
+                    '#64E572', '#FF9655', '#FFF263', '#6AF9C4' ],
                 chart: {
                     backgroundColor: {
                         linearGradient: {
@@ -120,9 +121,9 @@
                 }
             };
 
-            Highcharts.setOptions(Highcharts.theme);
+            Highcharts.setOptions( Highcharts.theme );
 
-            element.highcharts({
+            element.highcharts( {
                 chart: {
                     type: 'area'
                 },
@@ -168,7 +169,7 @@
                     name: '',
                     data: [ 502, 635, 809, 947, 1402, 3634, 5268 ]
                 } ]
-            });
+            } );
 
         }
 

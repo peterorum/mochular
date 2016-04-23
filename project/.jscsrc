@@ -72,6 +72,8 @@
     ],
     "requirePaddingNewLinesAfterBlocks": true,
     "validateParameterSeparator": ", ",
-    "requireSpaceAfterComma": true
+    "requireSpaceAfterComma": true,
+    "validateQuoteMarks": false,
+    "validateCommentPosition": false
 }
 
