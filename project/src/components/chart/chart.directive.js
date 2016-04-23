@@ -12,6 +12,8 @@
             },
             replace: true,
             link: link,
+            controllerAs: 'vm',
+            bindToController: true,
             controller: [ '$scope', '$timeout', controller ]
         };
 
@@ -185,10 +187,12 @@
 
             // store chart object
 
-            scope.chart = element.highcharts();
+            scope.vm.chart = element.highcharts();
         }
 
         function controller($scope, $timeout) {
+
+            let vm = this;
 
             let newTitle = "what the f";
             let speed = 200;
@@ -196,7 +200,7 @@
             for (let i = 0; i < newTitle.length; i++) {
                 $timeout( ( ) => {
 
-                    $scope.chart.setTitle( {
+                    vm.chart.setTitle( {
                         text: newTitle.substr( 0, i + 1 )
                     } );
 
@@ -207,7 +211,7 @@
             for (let i = 0; i < newTitle.length; i++) {
                 $timeout( ( ) => {
 
-                    $scope.chart.setTitle( {
+                    vm.chart.setTitle( {
                         text: newTitle.substr( 0, newTitle.length - i - 1 )
                     } );
 

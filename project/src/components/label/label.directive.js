@@ -12,10 +12,20 @@
                 text: "@"
             },
             replace: true,
-            link: link
+            link: link,
+            controllerAs: 'vm',
+            bindToController: true,
+            controller: controller
         };
 
         function link( /*scope*/ ) {
+            // scope.vm...
+        }
+
+        function controller() {
+
+            // let vm = this;
+
         }
 
         return directive;
