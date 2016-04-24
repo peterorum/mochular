@@ -75,6 +75,7 @@
     "requireSpaceAfterComma": true,
     "validateQuoteMarks": false,
     "validateCommentPosition": false,
-    "requireSpacesInsideParentheses": false
+    "requireSpacesInsideParentheses": false,
+    "requireSpacesInsideBrackets": false
 }
 

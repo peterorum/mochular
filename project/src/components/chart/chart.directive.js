@@ -21,6 +21,10 @@
 
             // set theme
 
+            let data = [ 502, 635, 809, 947, 1402, 3634, 5268 ];
+
+            let mainColour = '#f84610';
+
             let theme = {
                 colors: [ '#ebebeb', '#50B432', '#ED561B', '#DDDF00', '#24CBE5',
                     '#64E572', '#FF9655', '#FFF263', '#6AF9C4' ],
@@ -64,7 +68,7 @@
                     tickWidth: 0,
                     labels: {
                         style: {
-                            color: '#fff',
+                            color: '#000',
                             font: '11px Trebuchet MS, Verdana, sans-serif'
                         }
                     },
@@ -127,12 +131,22 @@
                     }
                 },
                 tooltip: {
-                    backgroundColor: '#f84610',
+                    backgroundColor: mainColour,
                     borderColor: 'black',
                     borderRadius: 10,
-                    borderWidth: 3
+                    borderWidth: 0,
+                    style: {
+                        color: "#fff"
+                    }
+                },
+                plotOptions: {
+                    series: {
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOut'
+                        }
+                    }
                 }
-
             };
 
             // apply theme
@@ -146,7 +160,7 @@
                     type: 'area'
                 },
                 title: {
-                    text: 'View options by risk vs return'
+                    text: 'View date by date or something'
                 },
                 subtitle: {
                     text: ''
@@ -171,22 +185,49 @@
                 tooltip: {
                     shared: true,
                     valueSuffix: '',
-                    formatter: () => 'Risk'
+                    formatter: ( ) => 'Custom tooltip'
                 },
                 plotOptions: {
                     area: {
                         stacking: 'normal',
-                        lineColor: '#f84610',
+                        lineColor: mainColour,
                         lineWidth: 4,
                         marker: {
                             lineWidth: 2,
-                            lineColor: '#f84610'
+                            lineColor: mainColour
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            backgroundColor: mainColour,
+                            borderRadius: 10,
+                            borderWidth: 0,
+                            style: {
+                                color: "#fff",
+                                textShadow: false
+                            },
+
+                            formatter: function() {
+                                console.log( this );
+
+                                let result;
+
+                                if (this.x === this.series.data[0].category) {
+                                    result = 'First point';
+                                } else if (this.x === this.series.data[data.length - 1].category) {
+                                    result = 'Last point';
+                                }
+
+                                return result;
+                            },
+
+                            align: 'right'
                         }
                     }
                 },
                 series: [ {
-                    name: '',
-                    data: [ 502, 635, 809, 947, 1402, 3634, 5268 ]
+                    name: 'Test',
+                    showInLegend: false,
+                    data: data
                 } ]
             };
 
@@ -201,34 +242,9 @@
             scope.vm.chart = element.highcharts();
         }
 
-        function controller($scope, $timeout) {
+        function controller( /*$scope, $timeout*/ ) {
 
-            let vm = this;
-
-            let newTitle = "what the f";
-            let speed = 200;
-
-            for (let i = 0; i < newTitle.length; i++) {
-                $timeout( ( ) => {
-
-                    vm.chart.setTitle( {
-                        text: newTitle.substr( 0, i + 1 )
-                    } );
-
-                }, speed * (i + 1 ) );
-
-            }
-
-            for (let i = 0; i < newTitle.length; i++) {
-                $timeout( ( ) => {
-
-                    vm.chart.setTitle( {
-                        text: newTitle.substr( 0, newTitle.length - i - 1 )
-                    } );
-
-                }, newTitle.length * speed + speed * (i + 1 ) );
-
-            }
+            // let vm = this;
         }
 
         return directive;
