@@ -76,6 +76,7 @@
     "validateQuoteMarks": false,
     "validateCommentPosition": false,
     "requireSpacesInsideParentheses": false,
-    "requireSpacesInsideBrackets": false
+    "requireSpacesInsideBrackets": false,
+    "maximumLineLength": 128
 }
 

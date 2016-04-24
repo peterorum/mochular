@@ -9,6 +9,9 @@
             restrict: "E",
             transclude: false,
             scope: {
+                categories: '=', // x
+                data: '=', // y
+                title: '='
             },
             replace: true,
             link: link,
@@ -20,8 +23,6 @@
         function link(scope, element) {
 
             // set theme
-
-            let data = [ 502, 635, 809, 947, 1402, 3634, 5268 ];
 
             let mainColour = '#f84610';
 
@@ -160,13 +161,13 @@
                     type: 'area'
                 },
                 title: {
-                    text: 'View date by date or something'
+                    text: scope.vm.title
                 },
                 subtitle: {
                     text: ''
                 },
                 xAxis: {
-                    categories: [ '1750', '1800', '1850', '1900', '1950', '1999', '2050' ],
+                    categories: scope.vm.categories,
                     tickmarkPlacement: 'off',
                     title: {
                         enabled: true
@@ -213,7 +214,7 @@
 
                                 if (this.x === this.series.data[0].category) {
                                     result = 'First point';
-                                } else if (this.x === this.series.data[data.length - 1].category) {
+                                } else if (this.x === this.series.data[this.series.data.length - 1].category) {
                                     result = 'Last point';
                                 }
 
@@ -227,7 +228,7 @@
                 series: [ {
                     name: 'Test',
                     showInLegend: false,
-                    data: data
+                    data: scope.vm.data
                 } ]
             };
 

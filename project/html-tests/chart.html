@@ -12,10 +12,15 @@
 
 <body ng-app='mochular.main'>
     <a href='../index.html'>Home</a>
+    <div ng-init="
+            categories = [ '1750', '1800', '1850', '1900', '1950', '1999', '2050' ];
+            data = [ 1502, 635, 809, 947, 1402, 3634, 5268 ];
+            title = 'Some data vs years';
+    "></div>
     <div class="container">
         <div class='row'>
             <div class='col-xs-12'>
-                <ma-chart>
+                <ma-chart data='data' title='title' categories='categories'>
                 </ma-chart>
             </div>
         </div>
