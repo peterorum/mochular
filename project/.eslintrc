@@ -31,6 +31,7 @@
   "max-depth": [2, 4],
   "max-statements": [2, {"maximum": 20}, {"ignoreTopLevelFunctions": false}],
   "no-console": 0,
-  "no-extra-semi": 0
+  "no-extra-semi": 0,
+  "no-constant-condition": 1
   }
 }

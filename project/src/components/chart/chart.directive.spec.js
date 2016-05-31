@@ -1,33 +1,33 @@
 (function() {
-    "use strict";
+  "use strict";
 
-    describe( "directive chart", function() {
-        let $compile, $scope;
+  describe( "directive chart", function() {
+    let $compile, $scope;
 
-        beforeEach(function() {
-            angular.mock.module( "mochular.main" );
-        });
+    beforeEach( function() {
+      angular.mock.module( "mochular.main" );
+    } );
 
-        beforeEach( inject(function( _$compile_, $rootScope ) {
-            $compile = _$compile_;
-            $scope = $rootScope.$new();
-        }) );
+    beforeEach( inject( function(_$compile_, $rootScope) {
+      $compile = _$compile_;
+      $scope = $rootScope.$new();
+    } ) );
 
-        function getMarkup() {
-            return '<ma-chart"></ma-chart>';
-        }
+    function getMarkup() {
+      return '<ma-chart"></ma-chart>';
+    }
 
-        it( "has a chart", function() {
+    it( "has a chart", function() {
 
-            let element = angular.element( getMarkup() );
-            element = $compile( element )( $scope );
-            $scope.$digest();
+      let element = angular.element( getMarkup() );
+      element = $compile( element )( $scope );
+      $scope.$digest();
 
-            // console.log(element[0].outerHTML);
+      // console.log(element[0].outerHTML);
 
-            expect( element.hasClass( "ma-chart" ) ).to.be.ok;
-        });
-    });
+      expect( element.hasClass( "ma-chart" ) ).to.be.ok;
+    } );
+  } );
 
 })();
 
