@@ -8,56 +8,43 @@
 
     $( '.ma-img-centered' ).on( 'load', resize );
 
-    setTimeout(resize, 0);
-
-    // set when switch to height is triggered
-    // assumes starting off large enough & wide enough
-    let minWidth = 0;
+    setTimeout( resize, 0 );
 
     function resize() {
       $( '.ma-img-centered' ).each( function() {
+
+        // make image large enogh to cover its container,
+        // keeping its aspect ratio
+        // and keepong its cenre visible.
+        // container needs overflow hidden
+
         let $img = $( this );
         let $container = $img.parent();
 
-        let h1 = $img.height();
-        let h2 = $container.height();
         let w1 = $img.width();
+        let h1 = $img.height();
+
         let w2 = $container.width();
+        let h2 = $container.height();
 
-        // switch is triggered when image gets too short to fit, so make it full width so height fills
+        if (h1 && w1) {
+          let imgAspect = h1 / w1;
 
-        if (h1 > h2 && w2 > minWidth || w1 < w2) {
+          let w3 = w2;
+          let h3 = w3 * imgAspect;
 
-          // move up so vertically centered
-
-          $img.css( {
-            'width': '100%',
-            'height': 'auto',
-            'margin-top': -(h1 - h2) / 2,
-            'margin-left': 0
-          } );
-
-          // re-init in case started small
-          minWidth = 0;
-
-        }
-        else {
-
-          if (minWidth === 0) {
-            minWidth = w2;
+          if (h3 < h2) {
+            h3 = h2;
+            w3 = h3 / imgAspect;
           }
 
-          // move left so horizontally centered
-
           $img.css( {
-            'width': 'auto',
-            'height': 'h2', // fill container
-            'margin-left': -(w1 - w2) / 2,
-            'margin-top': 0
+            'width': w3,
+            'height': h3,
+            'margin-top': -(h3 - h2) / 2,
+            'margin-left': -(w3 - w2) / 2
           } );
-
         }
-
 
       } );
     }

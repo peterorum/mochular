@@ -16,16 +16,12 @@
   }
 
   > div:nth-child(1) {
-    flex-basis: 33%;
+    flex-basis: 55%;
     overflow: hidden;
-
-    img {
-      width: 100%;
-    }
   }
 
   > div:nth-child(2) {
-    flex-basis: 67%;
+    flex-basis: 45%;
     text-align: center;
 
     & {
